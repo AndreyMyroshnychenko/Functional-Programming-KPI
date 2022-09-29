@@ -4,9 +4,7 @@ import Prelude
 
 import Effect (Effect)
 import Effect.Console (log)
-import Data.List (List(..), (:))
-import Data.Maybe (fromMaybe,Maybe(..))
-import Data.Foldable (foldr)
+import Data.List
 
 singleton :: forall argument. argument -> List argument
 singleton argument = argument : Nil
@@ -15,19 +13,13 @@ null :: forall argument. List argument -> Boolean
 null Nil = true
 null _ = false
 
-
 snoc :: forall argument. List argument -> argument -> List argument
-snoc array element = foldr (:) (element : Nil) array
+snoc array insertElem = reverse (insertElem : reverse array)
 
-tail :: forall argument. List argument -> Maybe (List argument)
-tail Nil = Nothing
-tail (_ : list) = Just list
 
 length :: forall argument. List argument -> Int
-length list =
-  if null list
-    then 0
-    else 1 + (length ( fromMaybe Nil (tail list)))
+length Nil = 0
+length (Cons _ array) = 1 + length array
 
 firstTask :: Int
 firstTask = 12
