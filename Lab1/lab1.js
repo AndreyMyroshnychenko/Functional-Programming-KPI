@@ -6,9 +6,9 @@ console.log(Singleton("Task one"));
 
 function Null(list){
     if(list.length===0){
-        return false;
-    }else{
         return true;
+    }else{
+        return false;
     }
 }
 console.log(Null([]));
