@@ -22,11 +22,10 @@ console.log(snoc(["old island", "simple island"], "new island"));
 
 function length(list){
     let i=0;
-    list=[1, 2, 3]
     for(let elem of list){
         i++;
     }
     console.log(i);
     return i;
 }
-length();
+length([1, 2, 3]);
